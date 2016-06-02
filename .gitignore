@@ -1,0 +1,4 @@
+.DS_Store
+lib/bower_components/
+sass/
+lib/node_modules/

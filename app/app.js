@@ -1,2 +1,2 @@
-var app = angular.model("GroovieMoovie", ["ngRoute"]) 
+var app = angular.module("GroovieMoovie", ["ngRoute"]) 
 //.constant("firebaseURL", "!!PLACEHOLDER!!")

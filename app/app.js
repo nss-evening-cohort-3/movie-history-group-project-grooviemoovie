@@ -21,9 +21,9 @@ app.config(function($routeProvider){
 });
 
 app.run(($location) => {
-  let todoRef = new Firebase("https://groovymovie.firebaseio.com/");
+  let movieRef = new Firebase("https://groovymovie.firebaseio.com/");
 
-  todoRef.onAuth(authData => {
+  movieRef.onAuth(authData => {
     if(!authData){
       $location.path("/login");
     }

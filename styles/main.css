@@ -1,7 +1,9 @@
 .loginPage {
   border: solid black 2px;
   padding: 1em;
-  width: 30em; }
+  width: 30em;
+  margin: 0 auto;
+  text-align: center; }
   .loginPage h3 {
     margin-bottom: .1em; }
   .loginPage button {

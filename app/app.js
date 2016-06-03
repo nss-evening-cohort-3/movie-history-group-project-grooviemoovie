@@ -17,7 +17,10 @@ app.config(function($routeProvider){
     templateUrl: 'partials/login.html',
     controller: 'LoginCtrl'
   }).
-  otherwise('partials/login.html');
+  when('/logout', {
+    templateUrl: 'partials/login.html',
+    controller: 'LoginCtrl'
+  })
 });
 
 app.run(($location) => {

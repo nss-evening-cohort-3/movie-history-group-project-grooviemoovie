@@ -5,11 +5,13 @@ app.controller("WishListCtrl", function($q, $http, firebaseURL) {
 	var getMovieWishList = function () {
 		var items = [];
 		return $q(function(resolve, reject) {
-			$http.get(firebaseURL + "movies.json")
+			$http.get(firebaseURL + "/movies.json")
 			.success(function(movieWishObject) {
 				var movieWishCollection = movieWishObject;
 				Object.keys(movieWishCollection).forEach(function(key) {
 					movieWishCollection[key].id=key;
+
+
 				});
 				resolve(items);
 			})
@@ -22,7 +24,7 @@ app.controller("WishListCtrl", function($q, $http, firebaseURL) {
 	var postNewMovieWish = function(newMovieWish) {
 		return $q(function(resolve, reject) {
 			$http.post(
-				firebaseURL + "movies.json", JSON.stringify({
+				firebaseURL + "/movies.json", JSON.stringify({
 					title: newMovieWish.title,
 					posterURL: newMovieWish.posterURL,
 					year: newMovieWish.year,

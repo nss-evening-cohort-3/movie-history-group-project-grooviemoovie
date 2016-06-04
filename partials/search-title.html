@@ -1,6 +1,8 @@
-<div class="searchOMDB">
-  <input type="search" class="form-control" placeholder="Search OMDB...">
-  <button>Search</button>
-  <input type="search" class="form-control" placeholder="Search My Watchlist...">
-  <button>Search</button>
+<div class="searchOMDB" ng-controller="SearchOMDBCtrl">
+  <!-- <form> -->
+    <input type="search" class="form-control" placeholder="Search OMDB..." ng-model="searchMovie"/>
+    <button ng-click="searchForMovie()">Search</button>
+    <input type="search" class="form-control" placeholder="Search My Watchlist..."/>
+    <button>Search</button>
+  <!-- </form> -->
 </div>

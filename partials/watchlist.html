@@ -11,10 +11,10 @@
 </div>
 
 <div ng-repeat="thingy in items | filter: {hasWatched: true}">
-  <div class="panel panel-default" ng-hide="thingy.isCompleted">
+  <div class="panel panel-default">
     <div class="panel-body">
       <div class="col-xs-1"><input type='checkbox' ng-model="thingy.HasWatched" ng-change="inputChange(thingy)" name=''/></div>
-      <div class="col-xs-7"><a ng-href="#/items/{{thingy.id}}">{{thingy.task}}</a></div>
+      <div class="col-xs-7"><a ng-href="#/items/{{thingy.id}}">{{thingy.title}}</a></div>
       <div class="col-xs-2">{{thingy.title}}</div>
       <div class="col-xs-1">{{thingy.year}}</div>
       <div class="col-xs-1"><button class="btn btn-danger" ng-click="itemDelete(thingy.id)"><i class="fa fa-trash" aria-hidden="true"></i></button></div>

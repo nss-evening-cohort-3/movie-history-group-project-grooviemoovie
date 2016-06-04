@@ -44,6 +44,6 @@ app.factory("itemStorage", function($q, $http, firebaseURL, AuthFactory){
     })
   }
 
-  return { getItemList:getItemList, postNewItem:postNewItem}
+  return {getItemList:getItemList, postNewItem:postNewItem}
   
 })

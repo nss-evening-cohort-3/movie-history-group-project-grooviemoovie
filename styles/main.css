@@ -13,3 +13,11 @@
   border: 1px solid black;
   border-radius: 10px;
   min-height: 50px; }
+
+.watchListCard {
+  border: 1px solid black;
+  margin: 2%;
+  padding: 2%;
+  text-align: center; }
+  .watchListCard img {
+    max-width: 90%; }

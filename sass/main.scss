@@ -18,4 +18,12 @@
   min-height: 50px;
 }
 
-
+.watchListCard{
+  border: 1px solid black;
+  margin: 2%;
+  padding: 2%;
+  text-align: center;
+  img {
+    max-width: 90%;
+  }
+}

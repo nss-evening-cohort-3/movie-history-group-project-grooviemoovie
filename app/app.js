@@ -30,6 +30,10 @@ app.config(function($routeProvider){
   when('/logout', {
     templateUrl: 'partials/login.html',
     controller: 'LoginCtrl'
+  }).
+  when('/wishlist', {
+    templateUrl: 'partials/wishlist.html',
+    controller: 'WishListCtrl'
   })
 });
 

@@ -2,27 +2,30 @@
 	"items": {
 		"item0": {
 			"title": "David",
-			"posterURL": "",
-			"year": "10/5/16",
-			"majorActor": "Tom",
-			"rating": "",
-			"hasWatched": true
+			"posterURL": "http://ia.media-imdb.com/images/M/MV5BMTIwNTMxMjA2Ml5BMl5BanBnXkFtZTcwNTIyNTEzMQ@@._V1_SX300.jpg",
+			"year": "2016",
+			"majorActors": "['Gary Busey', 'Gary Busey' 'Gary Busey']",
+			"rating": "4",
+			"hasWatched": true,
+			"uid": "7d2cd32d-e9d0-49e2-a9d8-1f1c29630880"
 		},
 		"item1": {
 			"title": "Ryan",
-			"posterURL": "",
-			"year": "2/5/16",
-			"majorActor": "Barry",
-			"rating": "",
-			"hasWatched": true
+			"posterURL": "http://ia.media-imdb.com/images/M/MV5BMTIwNTMxMjA2Ml5BMl5BanBnXkFtZTcwNTIyNTEzMQ@@._V1_SX300.jpg",
+			"year": "2016",
+			"majorActors": "['Gary Busey', 'Gary Busey' 'Gary Busey']",
+			"rating": "3",
+			"hasWatched": true,
+			"uid": "7d2cd32d-e9d0-49e2-a9d8-1f1c29630880"
 		},
 		"item2": {
 			"title": "Lee",
-			"posterURL": "",
-			"year": "1/5/16",
-			"majorActor": "Jim",
-			"rating": "",
-			"hasWatched": true
+			"posterURL": "http://ia.media-imdb.com/images/M/MV5BMTIwNTMxMjA2Ml5BMl5BanBnXkFtZTcwNTIyNTEzMQ@@._V1_SX300.jpg",
+			"year": "2016",
+			"majorActors": "['Gary Busey', 'Gary Busey' 'Gary Busey']",
+			"rating": "2",
+			"hasWatched": true,
+			"uid": "7d2cd32d-e9d0-49e2-a9d8-1f1c29630880"
 		}
 	}
 }

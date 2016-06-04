@@ -44,6 +44,15 @@ app.factory("itemStorage", function($q, $http, firebaseURL, AuthFactory){
     })
   }
 
+  var deleteItem = function(itemId){
+    return $q(function(resolve,reject){
+      $http.delete(firebaseURL + `items/${itemId}.json`)
+        .success(function(objectFromFirebase){
+          resolve(objectFromFirebase)
+        })
+    })
+  };
+
     var searchOMDB = function(searchMovie) {
     var items = []
     return $q(function(resolve, reject){
@@ -56,6 +65,6 @@ app.factory("itemStorage", function($q, $http, firebaseURL, AuthFactory){
       }); //$q
   };
 
-  return {getItemList:getItemList, postNewItem:postNewItem, searchOMDB: searchOMDB}
+  return {getItemList:getItemList, postNewItem:postNewItem, searchOMDB: searchOMDB, deleteItem:deleteItem}
   
 })

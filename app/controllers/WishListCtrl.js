@@ -28,7 +28,7 @@ app.controller("WishListCtrl", function($q, $http, firebaseURL) {
 					title: newMovieWish.title,
 					posterURL: newMovieWish.posterURL,
 					year: newMovieWish.year,
-					majorActor: newMovieWish.majorActor,
+					majorActor: newMovieWish.majorActors,
 					rating: newMovieWish.rating,
 					hasWatched: newMovieWish.hasWatched
 				})

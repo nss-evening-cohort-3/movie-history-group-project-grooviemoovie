@@ -5,4 +5,18 @@
     <input type="search" class="form-control" placeholder="Search My Watchlist..."/>
     <button>Search</button>
   <!-- </form> -->
+
+<section>
+<div class="searchResultContainer">
+
+
+  <div ng-repeat="movie in movieResults">
+    <div><img ng-src={{movie.Poster}}></div>
+    <div>{{movie.Title}}</div>
+    <div>{{movie.Year}}</div>
+    <div>Placeholder for actors</div>
+  </div>
+
+</div>
+</section> 
 </div>

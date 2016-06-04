@@ -1,23 +1,12 @@
-<h1>Movie List</h1>
-<div class="row">
-  <div class="col-xs-6 col-xs-offset-3">
-    <div class="input-group">
-      <span class="input-group-btn">
-        <button class="btn btn-default"><i class="fa fa-search" aria-hidden="true"></i></button>
-      </span>
-      <input type='text' class="form-control" placeholder='search for...' ng-model='searchText'/>
-    </div>
-  </div>
-</div>
+<h1>Movies I've Watched</h1>
 
-<div ng-repeat="thingy in items | filter: {hasWatched: true}">
-  <div class="panel panel-default" ng-hide="thingy.isCompleted">
-    <div class="panel-body">
-      <div class="col-xs-1"><input type='checkbox' ng-model="thingy.HasWatched" ng-change="inputChange(thingy)" name=''/></div>
-      <div class="col-xs-7"><a ng-href="#/items/{{thingy.id}}">{{thingy.task}}</a></div>
-      <div class="col-xs-2">{{thingy.title}}</div>
-      <div class="col-xs-1">{{thingy.year}}</div>
-      <div class="col-xs-1"><button class="btn btn-danger" ng-click="itemDelete(thingy.id)"><i class="fa fa-trash" aria-hidden="true"></i></button></div>
+<div ng-repeat="movie in items | filter: {hasWatched: true}">
+    <div class="col-xs-3 watchListCard">
+      <div>{{movie.title}}</div>
+      <div><img ng-src="http://i.imgur.com/LNWnPxA.png"></div> 
+      <div>{{movie.year}}</div>
+      <div class=><input type='checkbox' ng-model="movie.HasWatched" ng-change="inputChange(movie)" name=''/>
+      <div ><button class="btn btn-danger" ng-click="itemDelete(movie.id)"><i class="fa fa-trash" aria-hidden="true"></i></button></div>
     </div>
   </div>
 </div>

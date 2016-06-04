@@ -44,6 +44,15 @@ app.factory("itemStorage", function($q, $http, firebaseURL, AuthFactory){
     })
   }
 
-  return { getItemList:getItemList, postNewItem:postNewItem}
+  var deleteItem = function(itemId){
+    return $q(function(resolve,reject){
+      $http.delete(firebaseURL + `items/${itemId}.json`)
+        .success(function(objectFromFirebase){
+          resolve(objectFromFirebase)
+        })
+    })
+  };
+
+  return { getItemList:getItemList, postNewItem:postNewItem, deleteItem:deleteItem }
   
 })

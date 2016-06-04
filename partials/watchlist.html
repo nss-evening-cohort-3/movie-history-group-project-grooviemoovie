@@ -1,0 +1,23 @@
+<h1>Movie List</h1>
+<div class="row">
+  <div class="col-xs-6 col-xs-offset-3">
+    <div class="input-group">
+      <span class="input-group-btn">
+        <button class="btn btn-default"><i class="fa fa-search" aria-hidden="true"></i></button>
+      </span>
+      <input type='text' class="form-control" placeholder='search for...' ng-model='searchText'/>
+    </div>
+  </div>
+</div>
+
+<div ng-repeat="thingy in items | filter: {hasWatched: true}">
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <div class="col-xs-1"><input type='checkbox' ng-model="thingy.HasWatched" ng-change="inputChange(thingy)" name=''/></div>
+      <div class="col-xs-7"><a ng-href="#/items/{{thingy.id}}">{{thingy.title}}</a></div>
+      <div class="col-xs-2">{{thingy.title}}</div>
+      <div class="col-xs-1">{{thingy.year}}</div>
+      <div class="col-xs-1"><button class="btn btn-danger" ng-click="itemDelete(thingy.id)"><i class="fa fa-trash" aria-hidden="true"></i></button></div>
+    </div>
+  </div>
+</div>

@@ -13,6 +13,16 @@ let isAuth = (AuthFactory) => new Promise ((resolve, reject) => {
 
 app.config(function($routeProvider){
   $routeProvider.
+  when('/addToList', {
+    templateUrl:'partials/addNewMovie.html',
+    controller:'NewMovieCtrl',
+    resolve: {isAuth}
+  }).
+  when('/watchlist', {
+    templateUrl:'partials/watchlist.html',
+    controller:'WatchListCtrl',
+    resolve: {isAuth}
+  }).
   when('/login', {
     templateUrl: 'partials/login.html',
     controller: 'LoginCtrl'

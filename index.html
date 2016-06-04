@@ -15,6 +15,7 @@
 
 <div class="container" ng-view>
   <!-- Container for all partials besides navbar -->
+  <div ng-include="'partials/wishlist.html'"></div>
 </div> 
 </body>
   <script type="text/javascript" src="lib/bower_components/jquery/dist/jquery.min.js"></script>
@@ -29,4 +30,6 @@
   <script type="text/javascript" src="app/controllers/LoginCtrl.js"></script>
   <script type="text/javascript" src="app/controllers/WatchListCtrl.js"></script>
   <script type="text/javascript" src="app/controllers/SearchOMDBCtrl.js"></script>
+  <script type="text/javascript" src="app/controllers/WishListCtrl.js"></script>
+
 </html>

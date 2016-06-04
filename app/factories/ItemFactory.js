@@ -44,6 +44,18 @@ app.factory("itemStorage", function($q, $http, firebaseURL, AuthFactory){
     })
   }
 
-  return {getItemList:getItemList, postNewItem:postNewItem}
+    var searchOMDB = function(searchMovie) {
+    var items = []
+    return $q(function(resolve, reject){
+      $http.get(`http://www.omdbapi.com/?s=${searchMovie}&y=&plot=short&type=&r=json`)
+        .success(function(movieObject){
+          var searchResults = movieObject;
+            items.push(searchResults.Search)
+            resolve(items[0]);
+        }) //.success
+      }); //$q
+  };
+
+  return {getItemList:getItemList, postNewItem:postNewItem, searchOMDB: searchOMDB}
   
 })

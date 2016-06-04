@@ -15,6 +15,7 @@
 
 <div class="container" ng-view>
   <!-- Container for all partials besides navbar -->
+  <div ng-include="'partials/wishlist.html'"></div>
 </div> 
 </body>
   <script type="text/javascript" src="lib/bower_components/jquery/dist/jquery.min.js"></script>
@@ -25,7 +26,15 @@
   <script type="text/javascript" src="lib/bower_components/angularfire/dist/angularfire.min.js"></script>
   <script type="text/javascript" src="app/app.js"></script>
   <script type="text/javascript" src="app/factories/AuthFactory.js"></script>
+   <script type="text/javascript" src="app/factories/ItemFactory.js"></script>
   <script type="text/javascript" src="app/controllers/LoginCtrl.js"></script>
+  <script type="text/javascript" src="app/controllers/NewMovieCtrl.js"></script>
+  <script type="text/javascript" src="app/controllers/WatchListCtrl.js"></script>
   <script type="text/javascript" src="app/controllers/SearchOMDBCtrl.js"></script>
-  <!-- <script type="text/javascript" src="app/controllers/SearchOMDBResultsCtrl.js"></script> -->
+
+
+
+  <script type="text/javascript" src="app/controllers/WishListCtrl.js"></script>
+
+
 </html>

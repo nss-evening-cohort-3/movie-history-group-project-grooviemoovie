@@ -1,4 +1,5 @@
-"use strict"
+"use strict";
+
 app.controller("LoginCtrl", function($scope, $location, firebaseURL, AuthFactory){
   let ref = new Firebase(firebaseURL);
 

@@ -12,11 +12,6 @@
   }
 }
 
-.section-containers {
-  border: 1px solid black;
-  border-radius: 10px;
-  min-height: 50px;
-}
 
 .watchListCard{
   border: 1px solid black;
@@ -26,4 +21,31 @@
   img {
     max-width: 90%;
   }
+}
+
+
+
+.cover-container {
+    background-color: #f0f6f6;
+    border: 1px solid black;
+    border-radius: 10px;
+    height: 180px;
+    width: 100%
+    white-space: nowrap;
+    overflow-x: scroll;
+    overflow-y: hidden;
+}
+.cover-item {
+    position: relative;
+    display: inline-block;
+    margin: 8px 8px;
+    box-shadow: 2px 2px 4px #bbb;
+    border-top-right-radius: 4px;
+    width: 116px;
+    height: 158px;
+    vertical-align: bottom;
+    background-position: top left;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: white;
 }

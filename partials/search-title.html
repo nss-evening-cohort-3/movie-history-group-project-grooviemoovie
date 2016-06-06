@@ -2,21 +2,25 @@
   <!-- <form> -->
     <input type="search" class="form-control" placeholder="Search OMDB..." ng-model="searchMovie"/>
     <button ng-click="searchForMovie()">Search</button>
-    <input type="search" class="form-control" placeholder="Search My Watchlist..."/>
+    <input type="search" class="form-control" placeholder="Search My Wishlist..."/>
     <button>Search</button>
   <!-- </form> -->
 
 <section>
-<div class="searchResultContainer">
-
-
-  <div ng-repeat="movie in movieResults">
-    <div><img ng-src={{movie.Poster}}></div>
-    <div>{{movie.Title}}</div>
-    <div>{{movie.Year}}</div>
-    <div>Placeholder for actors</div>
+<div class="row-fluid">
+  <div class="col-lg-6 col-md-4">
+    <div class="cover-container">
+      <div class="card cover-item" ng-repeat="movie in movieResults">
+        <div class="poster-container">
+          <button class="btn btn-default">Add Movie</button>
+          <div>{{movie.Title}}</div>
+          <div><img ng-src={{movie.Poster}}></div>
+          <div>{{movie.Year}}</div>
+          <div>Placeholder for actors</div>
+        </div>
+        
+      </div>
+    </div>
   </div>
-
 </div>
-</section> 
-</div>
+</section>

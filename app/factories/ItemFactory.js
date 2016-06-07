@@ -28,12 +28,12 @@ app.factory("itemStorage", function($q, $http, firebaseURL, AuthFactory){
       $http.post(
         firebaseURL + "items.json",
         JSON.stringify({
-          title: newItem.title,
-          posterURL: newItem.posterURL,
-          year: newItem.year,
-          majorActors: newItem.majorActors,
-          rating: newItem.rating,
-          hasWatched: newItem.hasWatched,
+          title: newItem.Title,
+          posterURL: newItem.Poster,
+          year: newItem.Year,
+          majorActors: newItem.Actors.split(", "),
+          rating: "",
+          hasWatched: false,
           uid: user.uid
         })
         ).success(
@@ -65,6 +65,19 @@ app.factory("itemStorage", function($q, $http, firebaseURL, AuthFactory){
       }); //$q
   };
 
-  return {getItemList:getItemList, postNewItem:postNewItem, searchOMDB: searchOMDB, deleteItem:deleteItem}
+    var searchByTitle = function(searchMovie) {
+    var items = []
+    return $q(function(resolve, reject){
+      $http.get(`http://www.omdbapi.com/?t=${searchMovie}&y=&plot=short&type=&r=json`)
+        .success(function(movieObject){
+          var searchResults = movieObject;
+            items.push(searchResults)
+            console.log(items)
+            resolve(items[0]);
+        }) //.success
+      }); //$q
+   };
+
+  return {getItemList:getItemList, postNewItem:postNewItem, searchOMDB: searchOMDB, deleteItem:deleteItem, searchByTitle:searchByTitle}
   
 })

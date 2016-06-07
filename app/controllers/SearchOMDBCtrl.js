@@ -12,5 +12,13 @@ app.controller('SearchOMDBCtrl', function($scope, $location, $routeParams, itemS
         console.log($scope.movieResults)
       });
   };
+
+    $scope.searchSingleMovie = function(movieTitle) {
+    console.log('searching for single movie', movieTitle);
+    itemStorage.searchByTitle(movieTitle)
+      .then(function(searchResults){
+        itemStorage.postNewItem(searchResults)
+      });
+  };
 });
 

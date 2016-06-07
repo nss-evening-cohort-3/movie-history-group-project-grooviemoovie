@@ -12,7 +12,7 @@
     <div class="cover-container">
       <div class="card cover-item" ng-repeat="movie in movieResults">
         <div class="poster-container">
-          <button class="btn btn-default">Add Movie</button>
+          <button class="btn btn-default" ng-click="searchSingleMovie(movie.Title)">Add Movie</button>
           <div>{{movie.Title}}</div>
           <div><img ng-src={{movie.Poster}}></div>
           <div>{{movie.Year}}</div>

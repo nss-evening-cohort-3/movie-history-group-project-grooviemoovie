@@ -13,6 +13,11 @@ let isAuth = (AuthFactory) => new Promise ((resolve, reject) => {
 
 app.config(function($routeProvider){
   $routeProvider.
+  when('/', {
+    templateUrl:'partials/search-title.html',
+    controller:'SearchOMDBCtrl',
+    resolve: {isAuth}
+  }).
   when('/addToList', {
     templateUrl:'partials/addNewMovie.html',
     controller:'NewMovieCtrl',
@@ -33,8 +38,10 @@ app.config(function($routeProvider){
   }).
   when('/wishlist', {
     templateUrl: 'partials/wishlist.html',
-    controller: 'WishListCtrl'
-  })
+    controller: 'WishListCtrl',
+    resolve: {isAuth}
+  }).
+  otherwise('/');
 });
 
 app.run(($location) => {

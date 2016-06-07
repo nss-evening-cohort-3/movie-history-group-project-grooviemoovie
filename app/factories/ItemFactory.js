@@ -31,7 +31,7 @@ app.factory("itemStorage", function($q, $http, firebaseURL, AuthFactory){
           title: newItem.Title,
           posterURL: newItem.Poster,
           year: newItem.Year,
-          majorActors: newItem.Actors,
+          majorActors: newItem.Actors.split(", "),
           rating: "",
           hasWatched: false,
           uid: user.uid

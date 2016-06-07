@@ -1,43 +1,20 @@
 "use strict";
 
-app.controller("WishListCtrl", function($q, $http, firebaseURL) {
+app.controller("WishListCtrl", function($scope, $http, firebaseURL, itemStorage) {
+	$scope.items = [];
 
-	var getMovieWishList = function () {
-		var items = [];
-		return $q(function(resolve, reject) {
-			$http.get(firebaseURL + "/movies.json")
-			.success(function(movieWishObject) {
-				var movieWishCollection = movieWishObject;
-				Object.keys(movieWishCollection).forEach(function(key) {
-					movieWishCollection[key].id=key;
+	$http.get(firebaseURL + "/movies.json")
+	.success(function(itemObject) {
+		var itemCollection = itemObject;
+			Object.keys(itemCollection).forEach(function(key) {
+				itemCollection[key].id = key;
+				$scope.items.push(itemCollection[key]);
 
-
-				});
-				resolve(items);
-			})
-			.error(function(error) {
-				reject(error);
-			});
-		});
-	};
-
-	var postNewMovieWish = function(newMovieWish) {
-		return $q(function(resolve, reject) {
-			$http.post(
-				firebaseURL + "/movies.json", JSON.stringify({
-					title: newMovieWish.title,
-					posterURL: newMovieWish.posterURL,
-					year: newMovieWish.year,
-					majorActor: newMovieWish.majorActors,
-					rating: newMovieWish.rating,
-					hasWatched: newMovieWish.hasWatched
-				})
-				)
-			.success(function(objectFromFirebase) {
-				resolve(objectFromFirebase);
-			})
-		})
-	}
-
-	return {getMovieWishList:getMovieWishList, postNewMovieWish:postNewMovieWish};
-})
+				  // the filter method below loops through the firebase array and shows everything associated with itemId
+				
+				$scope.selectedItem = $scope.
+				items.filter(function(item) {
+					return item.id === $routeParams.itemId;
+			})[0];
+	});
+});

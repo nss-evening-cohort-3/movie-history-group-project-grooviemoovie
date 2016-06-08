@@ -68,19 +68,25 @@ app.factory("itemStorage", function($q, $http, firebaseURL, AuthFactory){
 
   var populateWishList = function() {
     var items = [];
+    var user = AuthFactory.getUser();
     return $q(function(resolve, reject) {
-      $http.get(firebaseURL + `items/.json`)
+      $http.get(`${firebaseURL}movies.json`)
       .success(function(itemObject) {
         var itemCollection = itemObject;
-        Object.keys(itemCollection).forEach(function(key) {
-          itemCollection[key].hasWatched = key;
-          // console.log("item Col", itemCollection)
-          resolve(itemCollection);
+        Object.keys(itemCollection).forEach(function(item) {
+          if (itemCollection[movie].uid === user.uid && itemCollection[item].hasWatched === false) {
+            itemCollection[item].id = item;
+            items.push(itemCollection[item]);
+          }
         });
+          resolve(items);
+      })
+      .error(function(error) {
+        reject(error);
       });
-    })
+    });
    
-  }
+  };
 
 
 

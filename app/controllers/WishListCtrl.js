@@ -1,20 +1,21 @@
 "use strict";
 
-app.controller("WishListCtrl", function($scope, $http, firebaseURL, itemStorage) {
+app.controller("WishListCtrl", function($scope, $location, itemStorage, AuthFactory) {
 	$scope.items = [];
+	// $scope.hasWatched = false;
 
-	$http.get(firebaseURL + "/movies.json")
-	.success(function(itemObject) {
-		var itemCollection = itemObject;
-			Object.keys(itemCollection).forEach(function(key) {
-				itemCollection[key].id = key;
-				$scope.items.push(itemCollection[key]);
+		$scope.display = function() {
+			if ($location.path() === "/wishlist") {
+				itemStorage.getItemList().then(function(data) {
+					// $scope.hasWatched = false;
+					$scope.items = data;
+					console.log($scope.items)
+				});
+			}
+			
+		}
+		$scope.display();
+		});
+	
 
-				  // the filter method below loops through the firebase array and shows everything associated with itemId
-				
-				$scope.selectedItem = $scope.
-				items.filter(function(item) {
-					return item.id === $routeParams.itemId;
-			})[0];
-	});
-});
+// $scope.items.push(itemCollection[key]);

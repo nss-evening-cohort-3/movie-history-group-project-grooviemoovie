@@ -46,7 +46,7 @@ app.config(function($routeProvider){
 
 app.run(($location) => {
   let movieRef = new Firebase("https://groovymovie.firebaseio.com/");
-
+    movieRef.unauth();
   movieRef.onAuth(authData => {
     if(!authData){
       $location.path("/login");

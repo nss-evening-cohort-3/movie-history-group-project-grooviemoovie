@@ -1,3 +1,19 @@
+body {
+  background-color: darkgray;
+}
+
+.navbar {
+  background-color: darkred;
+  font-weight: bold;
+  .navbar-brand {
+    color: ivory;
+    font-size: 2em;
+  }
+  a {
+    color: white;
+  }
+}
+
 .loginPage {
   border: solid black 2px;
   padding: 1em;
@@ -26,32 +42,58 @@
 
 
 .cover-container {
-    background-color: #f0f6f6;
+    margin: 5% 0;
+    background-color: black;
     border: 1px solid black;
     border-radius: 10px;
-    height: 450px;
-    width: 900px;
+    height: 500px;
+    width: 100%;
     white-space: nowrap;
     overflow-x: scroll;
-    overflow-y: hidden;
+    overflow-y: scroll;
 }
 .cover-item {
     position: relative;
     display: inline-block;
     margin: 1% 1%;
-    box-shadow: 6px 2px 4px #bbb;
+    box-shadow: 6px 2px 4px #ff5;
     border-radius: 0px 4px 4px 0px;
-    width: 150px;
+    width: 20%;
     height: 440px;
     vertical-align: bottom;
     background-position: top left;
     background-repeat: no-repeat;
     background-size: cover;
-    background-color: white;
+    background-color: whitesmoke;
     white-space: pre-line;
-    img {
-      max-height: 175px;
+    .movieTitle {
+      font-weight: bold;
+      text-align: center;
+      font-size: 1.3em;
+      line-height: 120%;
+      margin-top: -13%;
+      overflow: scroll;
+      height: 50px;
     }
+    img {
+      display: block;
+      margin: 0 auto;
+      max-height: 300px;
+      min-height: 300px;
+      margin: 0 auto;
+      padding-left: .5%;
+      padding-right: .5%;
+    }
+    .movieYear {
+      padding-left: 5%;
+    }
+}
+
+.watchList {
+  .movieCast {
+    background-color: white;
+
+  }
 }
 
 

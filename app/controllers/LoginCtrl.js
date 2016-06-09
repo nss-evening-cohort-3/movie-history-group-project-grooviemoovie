@@ -1,6 +1,6 @@
 "use strict";
 
-app.controller("LoginCtrl", function($scope, $location, firebaseURL, AuthFactory){
+app.controller("LoginCtrl", function($scope, $rootScope, $location, firebaseURL, AuthFactory){
   let ref = new Firebase(firebaseURL);
 
   $scope.hasUser = false;
@@ -12,6 +12,7 @@ app.controller("LoginCtrl", function($scope, $location, firebaseURL, AuthFactory
   
   if($location.path() === "/logout") {
     ref.unauth();
+    $rootScope.isActive = false;
   }
 
 $scope.register = () => {
@@ -33,9 +34,11 @@ $scope.register = () => {
     console.log("login");
     AuthFactory.authenticate($scope.account)
       .then(() => {
+        $rootScope.isActive = true;
         $scope.hasUser= true;
         $location.path("/");
         $scope.$apply();
+
       })
   }
 

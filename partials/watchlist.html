@@ -1,6 +1,6 @@
 <h1>Movies I've Watched</h1>
 
-<div ng-repeat="movie in items | filter: {hasWatched: true}">
+<!-- <div ng-repeat="movie in items | filter: {hasWatched: true}">
     <div class="col-xs-3 watchListCard">
       <div>{{movie.title}}</div>
       <div><img ng-src="{{movie.posterURL}}"></div> 
@@ -45,3 +45,23 @@
     </div>
   </div>
 </div>
+ -->
+<section>
+<div class="row-fluid">
+    <div class="cover-container watchList">
+      <div class="card cover-item" ng-repeat="movie in items">
+        <div class="poster-container">
+          <div class="movieTitle">{{movie.title}}</div>
+          <div><img ng-src={{movie.posterURL}}></div>
+          <div class="movieYear">{{movie.year}}</div>
+          <div class="movieCast">{{movie.majorActors.join(", ")}}
+          <div><input type='checkbox' ng-model="movie.HasWatched" ng-change="inputChange(movie)" name=''/>
+          <div ><button class="btn btn-danger" ng-click="itemDelete(movie.id)"><i class="fa fa-trash" aria-hidden="true"></i></button></div>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+</section>
+
+      

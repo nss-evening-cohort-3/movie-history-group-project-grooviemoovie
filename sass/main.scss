@@ -1,3 +1,5 @@
+
+
 .loginPage {
   border: solid black 2px;
   padding: 1em;
@@ -23,13 +25,15 @@
   }
 }
 
-
+.container {
+  margin-top: 50px;
+}
 
 .cover-container {
     background-color: #f0f6f6;
     border: 1px solid black;
     border-radius: 10px;
-    height: 600px;
+    height: 425px;
     width: 900px;
     white-space: nowrap;
     overflow-x: scroll;

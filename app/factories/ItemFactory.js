@@ -79,32 +79,48 @@ app.factory("itemStorage", function($q, $http, firebaseURL, AuthFactory){
             items.push(itemCollection[item]);
           }
         });
-          resolve(items);
+        resolve(items);
       })
       .error(function(error) {
         reject(error);
       });
     });
-   
+
   };
 
 
 
 
-    var searchByTitle = function(searchMovie) {
+  var searchByTitle = function(searchMovie) {
     var items = []
     return $q(function(resolve, reject){
       $http.get(`http://www.omdbapi.com/?t=${searchMovie}&y=&plot=short&type=&r=json`)
-        .success(function(movieObject){
-          var searchResults = movieObject;
-            items.push(searchResults)
-            console.log(items)
-            resolve(items[0]);
+      .success(function(movieObject){
+        var searchResults = movieObject;
+        items.push(searchResults)
+        console.log(items)
+        resolve(items[0]);
         }) //.success
       }); //$q
-   };
+  };
 
-  return {getItemList:getItemList, postNewItem:postNewItem, searchOMDB: searchOMDB, deleteItem:deleteItem, searchByTitle:searchByTitle, populateWishList:populateWishList}
+  var movieRating = function(itemId, movieRating) {
+    return $q(function(resolve, reject){
+      $http.put(
+        firebaseURL + `items/${itemId}.json`,
+        JSON.stringify({
+          rating: movieRating,
+          hasWatched: true
+        })
+        )
+      .success(function(data) {
+        resolve(data);
+      }) 
+
+    })
+  }
+
+  return {getItemList:getItemList, postNewItem:postNewItem, searchOMDB: searchOMDB, deleteItem:deleteItem, searchByTitle:searchByTitle, populateWishList:populateWishList, movieRating:movieRating}
   
 })
 

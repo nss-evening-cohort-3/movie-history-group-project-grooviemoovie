@@ -1,17 +1,38 @@
 <h1>Wishlist</h1>
-  <div class="col-lg-6 col-md-10 ">
-    <div class="cover-container">
-      <!-- <div class="cover-item"></div>  -->
-        <div ng-repeat="movie in items" class="cover-item">
-<div ng-show="!movie.hasWatched">
+<div class="col-lg-6 col-md-10 ">
+  <div class="cover-container">
+    <!-- <div class="cover-item"></div>  -->
+    <div ng-repeat="movie in items" class="cover-item">
+      <div ng-show="!movie.hasWatched">
         <div>{{movie.title}}</div>
         <div><img ng-src="{{movie.posterURL}}"></div> 
         <div>{{movie.year}}</div>
         <div>{{movie.majorActors.join(", ")}}
-            <div ><button class="btn btn-danger" ng-click="itemDelete(movie.id)"><i class="fa fa-trash" aria-hidden="true"></i></button></div>
+          <div ><button class="btn btn-danger" ng-click="itemDelete(movie.id)"><i class="fa fa-trash" aria-hidden="true"></i></button></div>
+      
+
+      <div class="rating" >
+          <span ng-click = "rateMovie(1, movie.id)"><i class="fa fa-star" aria-hidden="true"></i></span>
+          <span ng-click = "rateMovie(2, movie.id)"><i class="fa fa-star" aria-hidden="true"></i></span>
+          <span ng-click = "rateMovie(3, movie.id)"><i class="fa fa-star" aria-hidden="true"></i></span>
+          <span ng-click = "rateMovie(4, movie.id)"><i class="fa fa-star" aria-hidden="true"></i></span>
+          <span ng-click = "rateMovie(5, movie.id)"><i class="fa fa-star" aria-hidden="true"></i></span>
+          
           </div>
-        </div>
+        
+
+          
   
+
+
+
+
+
+        </div>
+      </div>
+
+
+
 
 
 

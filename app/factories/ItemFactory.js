@@ -104,13 +104,31 @@ app.factory("itemStorage", function($q, $http, firebaseURL, AuthFactory){
       }); //$q
   };
 
-  var movieRating = function(itemId, movieRating) {
+  var getSingleItem = function(itemId){
+    return $q(function(resolve, reject){
+      $http.get(firebaseURL + "items/"+itemId+".json")
+        .success(function(itemObject){
+          resolve(itemObject);
+        })
+        .error(function(error){
+          reject(error);
+        });
+      });
+  }
+
+  var movieRating = function(itemId, movieRating, movieObject) {
+    var user = AuthFactory.getUser();
+    console.log("movieObject", movieObject);
     return $q(function(resolve, reject){
       $http.put(
         firebaseURL + `items/${itemId}.json`,
         JSON.stringify({
+          title: movieObject.title,
+          posterURL: movieObject.posterURL,
+          majorActors: movieObject.majorActors,
           rating: movieRating,
-          hasWatched: true
+          hasWatched: true,
+          uid: user.uid
         })
         )
       .success(function(data) {
@@ -120,7 +138,7 @@ app.factory("itemStorage", function($q, $http, firebaseURL, AuthFactory){
     })
   }
 
-  return {getItemList:getItemList, postNewItem:postNewItem, searchOMDB: searchOMDB, deleteItem:deleteItem, searchByTitle:searchByTitle, populateWishList:populateWishList, movieRating:movieRating}
+  return {getItemList:getItemList, postNewItem:postNewItem, searchOMDB: searchOMDB, deleteItem:deleteItem, searchByTitle:searchByTitle, populateWishList:populateWishList, movieRating:movieRating, getSingleItem:getSingleItem}
   
 })
 

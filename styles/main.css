@@ -47,21 +47,21 @@ body {
   box-shadow: 6px 2px 4px #ff5;
   border-radius: 0px 4px 4px 0px;
   width: 20%;
-  height: 440px;
+  min-height: 440px;
+  max-height: 440px;
   vertical-align: bottom;
   background-position: top left;
   background-repeat: no-repeat;
   background-size: cover;
   background-color: whitesmoke;
   white-space: pre-line;
-  background-color: white;
   white-space: normal; }
   .cover-item .movieTitle {
     font-weight: bold;
     text-align: center;
     font-size: 1.3em;
     line-height: 120%;
-    margin-top: -13%;
+    margin-top: 2%;
     overflow: scroll;
     height: 50px; }
   .cover-item img {
@@ -79,4 +79,5 @@ body {
   background-color: white; }
 
 .rating {
-  position: absolute; }
+  position: absolute;
+  background-color: darkred; }

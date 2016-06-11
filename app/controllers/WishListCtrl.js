@@ -32,4 +32,13 @@ app.controller("WishListCtrl", function($scope, $location, itemStorage, AuthFact
 		})
 	}
 
+	$scope.starred = function (bool) {
+		if (bool === true) {
+			$scope.starColor = {'color':'#FBBC05'}
+		} else if (bool === false) {
+			$scope.starColor = {color: 'white'}
+		}
+
+	}
+
 });
